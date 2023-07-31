@@ -2,6 +2,7 @@ require("dotenv").config({ path: __dirname + "/../.env" });
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const restaurantRouter = require("./routes/restaurantRoutes");
 
 const app = express();
 
@@ -20,3 +21,5 @@ app.use(morgan("dev"));
 app.get("/", (req, res) => {
 	res.send("Hello world!");
 });
+
+app.use("/restaurants", restaurantRouter);
