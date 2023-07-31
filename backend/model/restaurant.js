@@ -12,6 +12,8 @@ const restaurantSchema = Schema(
 			required: true,
 		},
 		description: String,
+		area: String,
+		website: String,
 	},
 	{ timestamps: true }
 );
