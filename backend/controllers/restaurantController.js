@@ -20,19 +20,48 @@ const getRestaurant = async (req, res) => {
 };
 
 const createRestaurant = async (req, res) => {
-	res.status(200).json({ message: "This request creates a new restaurant" });
-};
-
-const deleteRestaurant = (req, res) => {
-	const id = req.params.id;
-	res.json({
-		message: `This request deletes a single restaurant of id ${id}`,
+	const restaurant = new Restaurant({
+		name: "Genki Sushi",
+		cuisine: "Japanese",
+		area: "Everywhere",
+		website: "https://www.genkisushi.com.sg/",
 	});
+	// const restaurant = new Restaurant(req.body);
+	try {
+		const response = await restaurant.save();
+		res.status(200).json({
+			message: `Successfully created a new restaurant: ${response.name}`,
+		});
+	} catch (err) {
+		console.log(err);
+	}
 };
 
-const updateRestaurant = (req, res) => {
+const deleteRestaurant = async (req, res) => {
 	const id = req.params.id;
-	res.json({ message: `This request updates a restaurant of id ${id}` });
+	try {
+		const response = await Restaurant.findByIdAndDelete(id);
+		res.status(200).json({
+			message: `Successfully deleted restaurant: ${response.name}`,
+		});
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+const updateRestaurant = async (req, res) => {
+	const id = req.params.id;
+	const update = req.body;
+	try {
+		const response = await Restaurant.findByIdAndUpdate(id, update, {
+			new: true,
+		});
+		res.status(200).json({
+			message: `Successfully updated restaurant: ${response.name}`,
+		});
+	} catch (err) {
+		console.log(err);
+	}
 };
 
 module.exports = {
