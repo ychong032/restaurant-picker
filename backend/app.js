@@ -11,7 +11,12 @@ mongoose
 	.then((result) => app.listen(process.env["PORT_NUMBER"]))
 	.catch((err) => console.log(err));
 
+// Set view engine
+app.set("view engine", "ejs");
+
+// Middleware
+app.use(morgan("dev"));
+
 app.get("/", (req, res) => {
-	console.log("Connected to database!");
 	res.send("Hello world!");
 });
