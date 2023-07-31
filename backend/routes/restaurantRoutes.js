@@ -1,14 +1,12 @@
 const express = require("express");
+const restaurantController = require("../controllers/restaurantController");
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-	res.send("This is where all restaurants will be displayed");
-});
-
-// router.get("/create", renderCreatePage)
-// router.post("/", addNewRestaurant)
-// router.delete("/:id", deleteRestaurant)
-// router.get("/:id", viewRestaurant)
+router.get("/", restaurantController.getRestaurants);
+router.post("/", restaurantController.createRestaurant);
+router.get("/:id", restaurantController.getRestaurant);
+router.delete("/:id", restaurantController.deleteRestaurant);
+router.patch("/:id", restaurantController.updateRestaurant);
 
 module.exports = router;
