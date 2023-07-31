@@ -1,17 +1,25 @@
-// const restaurantModel = require("../models/restaurant");
+const Restaurant = require("../models/restaurant");
 
-const getRestaurants = (req, res) => {
-	res.status(200).json({ message: "This request gets all restaurants" });
+const getRestaurants = async (req, res) => {
+	try {
+		const response = await Restaurant.find().sort({ name: 1 });
+		res.status(200).json(response);
+	} catch (err) {
+		console.log(err);
+	}
 };
 
-const getRestaurant = (req, res) => {
+const getRestaurant = async (req, res) => {
 	const id = req.params.id;
-	res.status(200).json({
-		message: `This request gets a single restaurant of id ${id}`,
-	});
+	try {
+		const response = await Restaurant.findById(id);
+		res.status(200).json(response);
+	} catch (err) {
+		console.log(err);
+	}
 };
 
-const createRestaurant = (req, res) => {
+const createRestaurant = async (req, res) => {
 	res.status(200).json({ message: "This request creates a new restaurant" });
 };
 
