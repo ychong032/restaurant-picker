@@ -20,13 +20,7 @@ const getRestaurant = async (req, res) => {
 };
 
 const createRestaurant = async (req, res) => {
-	const restaurant = new Restaurant({
-		name: "Genki Sushi",
-		cuisine: "Japanese",
-		area: "Everywhere",
-		website: "https://www.genkisushi.com.sg/",
-	});
-	// const restaurant = new Restaurant(req.body);
+	const restaurant = new Restaurant(req.body);
 	try {
 		const response = await restaurant.save();
 		res.status(200).json({
