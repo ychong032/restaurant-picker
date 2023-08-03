@@ -5,9 +5,7 @@ const Restaurants = ({ restaurants }) => {
 		<Restaurant restaurant={data} key={data.name} />
 	));
 
-	return (
-		<div className="bg-gray-200 p-4 text-center">{restaurantElements}</div>
-	);
+	return <div>{restaurantElements}</div>;
 };
 
 export default Restaurants;
