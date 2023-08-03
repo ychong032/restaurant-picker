@@ -30,4 +30,4 @@ app.get("/", (req, res) => {
 	res.send("Hello world!");
 });
 
-app.use("/restaurants", restaurantRouter);
+app.use("/api/restaurants", restaurantRouter);
