@@ -4,7 +4,7 @@ const Create = () => {
 			<h1 className="font-semibold text-lg">Add a new restaurant</h1>
 			<form
 				action="/api/restaurants"
-				form="post"
+				method="post"
 				className="flex flex-col gap-y-4 p-2">
 				<input
 					type="text"
