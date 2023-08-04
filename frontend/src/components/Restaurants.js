@@ -5,7 +5,7 @@ const Restaurants = ({ restaurants }) => {
 		<Restaurant restaurant={data} key={data.name} />
 	));
 
-	return <div>{restaurantElements}</div>;
+	return <div className="flex flex-col gap-4">{restaurantElements}</div>;
 };
 
 export default Restaurants;

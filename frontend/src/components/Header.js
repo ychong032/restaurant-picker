@@ -4,7 +4,7 @@ const Header = () => {
 	return (
 		<div className="flex justify-between items-center px-60 py-4 bg-sky-300">
 			<NavLink to="/">
-				<h1 className="text-2xl">Restaurant Picker</h1>
+				<h1 className="text-2xl font-bold">Restaurant Picker</h1>
 			</NavLink>
 			<nav>
 				<ul className="flex items-center gap-8">
