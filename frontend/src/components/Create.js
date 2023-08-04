@@ -1,11 +1,34 @@
+import { useNavigate } from "react-router-dom";
+
 const Create = () => {
+	const navigate = useNavigate();
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		const formData = new FormData(e.target);
+		const jsonData = JSON.stringify(Object.fromEntries(formData));
+		console.log(jsonData);
+
+		try {
+			await fetch("http://localhost:3001/api/restaurants", {
+				method: "POST",
+				headers: {
+					Accept: "application/json",
+					"Content-Type": "application/json",
+				},
+				body: jsonData,
+			});
+			navigate("/success");
+		} catch (err) {
+			alert("Failed to add restaurant: " + err);
+		}
+	};
+
 	return (
 		<div className="bg-gray-200 p-4 text-center flex flex-col gap-y-4 rounded-md">
 			<h1 className="font-semibold text-lg">Add a new restaurant</h1>
-			<form
-				action="http://localhost:3001/api/restaurants"
-				method="post"
-				className="flex flex-col gap-y-4 p-2">
+			<form onSubmit={handleSubmit} className="flex flex-col gap-y-4 p-2">
 				<input
 					type="text"
 					name="name"

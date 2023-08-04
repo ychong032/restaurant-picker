@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Home from "./Home";
 import Restaurants from "./Restaurants";
 import Create from "./Create";
+import Success from "./Success";
 
 const Body = () => {
 	const [data, setData] = useState([]);
@@ -33,6 +34,7 @@ const Body = () => {
 					element={<Restaurants restaurants={data} />}
 				/>
 				<Route path="/create" element={<Create />} />
+				<Route path="/success" element={<Success />} />
 			</Routes>
 		</div>
 	);
