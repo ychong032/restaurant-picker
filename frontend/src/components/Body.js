@@ -6,7 +6,7 @@ import Create from "./Create";
 import Success from "./Success";
 
 const Body = () => {
-	const [data, setData] = useState([]);
+	const [restaurantData, setRestaurantData] = useState([]);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -16,7 +16,7 @@ const Body = () => {
 				);
 				const restaurants = await response.json();
 
-				setData(restaurants);
+				setRestaurantData(restaurants);
 			} catch (err) {
 				console.log(err);
 			}
@@ -31,9 +31,17 @@ const Body = () => {
 				<Route path="/" element={<Home />} />
 				<Route
 					path="/restaurants"
-					element={<Restaurants restaurants={data} />}
+					element={<Restaurants restaurants={restaurantData} />}
 				/>
-				<Route path="/create" element={<Create />} />
+				<Route
+					path="/create"
+					element={
+						<Create
+							restaurants={restaurantData}
+							onChange={setRestaurantData}
+						/>
+					}
+				/>
 				<Route path="/success" element={<Success />} />
 			</Routes>
 		</div>

@@ -23,9 +23,7 @@ const createRestaurant = async (req, res) => {
 	const restaurant = new Restaurant(req.body);
 	try {
 		const response = await restaurant.save();
-		res.status(200).json({
-			message: `Successfully created a new restaurant: ${response.name}`,
-		});
+		res.status(200).json(response);
 	} catch (err) {
 		console.log(err);
 	}

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const Create = () => {
+const Create = ({ restaurants, onChange }) => {
 	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
@@ -8,17 +8,23 @@ const Create = () => {
 
 		const formData = new FormData(e.target);
 		const jsonData = JSON.stringify(Object.fromEntries(formData));
-		console.log(jsonData);
 
 		try {
-			await fetch("http://localhost:3001/api/restaurants", {
-				method: "POST",
-				headers: {
-					Accept: "application/json",
-					"Content-Type": "application/json",
-				},
-				body: jsonData,
-			});
+			const response = await fetch(
+				"http://localhost:3001/api/restaurants",
+				{
+					method: "POST",
+					headers: {
+						Accept: "application/json",
+						"Content-Type": "application/json",
+					},
+					body: jsonData,
+				}
+			);
+
+			const newRestaurant = await response.json();
+			onChange([...restaurants, newRestaurant]);
+
 			navigate("/success");
 		} catch (err) {
 			alert("Failed to add restaurant: " + err);
