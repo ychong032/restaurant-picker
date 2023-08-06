@@ -22,13 +22,18 @@ const Body = () => {
 			}
 		};
 
+		console.log("I fire once");
+
 		fetchData();
 	}, []);
 
 	return (
 		<div className="flex flex-1 items-center justify-center py-8">
 			<Routes>
-				<Route path="/" element={<Home />} />
+				<Route
+					path="/"
+					element={<Home restaurants={restaurantData} />}
+				/>
 				<Route
 					path="/restaurants"
 					element={<Restaurants restaurants={restaurantData} />}
