@@ -1,8 +1,13 @@
 import Restaurant from "./Restaurant";
 
-const Restaurants = ({ restaurants }) => {
+const Restaurants = ({ restaurants, onDelete }) => {
 	const restaurantElements = restaurants.map((data) => (
-		<Restaurant restaurant={data} key={data.name} isEditable={true} />
+		<Restaurant
+			restaurant={data}
+			key={data.name}
+			isEditable={true}
+			onDelete={onDelete}
+		/>
 	));
 
 	return (

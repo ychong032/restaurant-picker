@@ -1,8 +1,27 @@
-const Restaurant = ({ restaurant, isEditable }) => {
+const Restaurant = ({ restaurant, isEditable, onDelete }) => {
+	const handleDelete = async () => {
+		try {
+			const response = await fetch(
+				`http://localhost:3001/api/restaurants/${restaurant._id}`,
+				{ method: "DELETE" }
+			);
+			onDelete(restaurant._id);
+
+			const json = await response.json();
+			alert(json.message);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	const handleUpdate = () => {
+		console.log("Handle update triggered");
+	};
+
 	const editButtons = (
 		<div className="flex gap-2">
-			<button>Edit</button>
-			<button>Delete</button>
+			<button onClick={handleUpdate}>Edit</button>
+			<button onClick={handleDelete}>Delete</button>
 		</div>
 	);
 

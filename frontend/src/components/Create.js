@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const Create = ({ restaurants, onChange }) => {
+const Create = ({ restaurants, onCreate }) => {
 	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
@@ -23,7 +23,7 @@ const Create = ({ restaurants, onChange }) => {
 			);
 
 			const newRestaurant = await response.json();
-			onChange([...restaurants, newRestaurant]);
+			onCreate(newRestaurant);
 
 			navigate("/success");
 		} catch (err) {

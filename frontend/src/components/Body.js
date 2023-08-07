@@ -27,6 +27,17 @@ const Body = () => {
 		fetchData();
 	}, []);
 
+	const handleDeleteRestaurant = (id) => {
+		const filteredRestaurants = restaurantData.filter(
+			(restaurant) => restaurant._id !== id
+		);
+		setRestaurantData(filteredRestaurants);
+	};
+
+	const handleCreateRestaurant = (newRestaurant) => {
+		setRestaurantData([...restaurantData, newRestaurant]);
+	};
+
 	return (
 		<div className="flex flex-1 items-center justify-center py-8">
 			<Routes>
@@ -36,14 +47,19 @@ const Body = () => {
 				/>
 				<Route
 					path="/restaurants"
-					element={<Restaurants restaurants={restaurantData} />}
+					element={
+						<Restaurants
+							restaurants={restaurantData}
+							onDelete={handleDeleteRestaurant}
+						/>
+					}
 				/>
 				<Route
 					path="/create"
 					element={
 						<Create
 							restaurants={restaurantData}
-							onChange={setRestaurantData}
+							onCreate={handleCreateRestaurant}
 						/>
 					}
 				/>
