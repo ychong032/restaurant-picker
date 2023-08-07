@@ -35,7 +35,22 @@ const Body = () => {
 	};
 
 	const handleCreateRestaurant = (newRestaurant) => {
-		setRestaurantData([...restaurantData, newRestaurant]);
+		setRestaurantData(
+			[...restaurantData, newRestaurant].sort((a, b) => {
+				const restaurantA = a.name.toUpperCase();
+				const restaurantB = b.name.toUpperCase();
+
+				if (restaurantA < restaurantB) {
+					return -1;
+				}
+
+				if (restaurantA > restaurantB) {
+					return 1;
+				}
+
+				return 0;
+			})
+		);
 	};
 
 	return (
