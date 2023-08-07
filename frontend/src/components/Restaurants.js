@@ -11,9 +11,11 @@ const Restaurants = ({ restaurants, onDelete }) => {
 	));
 
 	return (
-		<div className="grid grid-cols-2 gap-4 px-32 grid-rows-1 auto-rows-fr">
-			{restaurantElements}
-		</div>
+		<>
+			<div className="grid grid-cols-2 gap-4 px-32 grid-rows-1 auto-rows-fr">
+				{restaurantElements}
+			</div>
+		</>
 	);
 };
 
