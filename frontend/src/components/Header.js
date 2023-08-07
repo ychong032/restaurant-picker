@@ -10,6 +10,17 @@ const Header = () => {
 				<ul className="flex items-center gap-8">
 					<li>
 						<NavLink
+							to="/"
+							className={({ isActive }) =>
+								isActive
+									? "border-b-4 border-blue-700 text-blue-700 "
+									: "hover:text-blue-500"
+							}>
+							Pick a restaurant
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
 							to="/restaurants"
 							className={({ isActive }) =>
 								isActive
