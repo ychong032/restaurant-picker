@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ReactModal from "react-modal";
 
-const Restaurant = ({ restaurant, isEditable, onDelete }) => {
+const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 	const [showModal, setShowModal] = useState(false);
 
 	ReactModal.setAppElement("#root");
@@ -40,8 +40,8 @@ const Restaurant = ({ restaurant, isEditable, onDelete }) => {
 				}
 			);
 
-			const json = await response.json();
-			alert(json.message);
+			const updatedRestaurant = await response.json();
+			onUpdate(updatedRestaurant);
 		} catch (err) {
 			console.log(err);
 		}

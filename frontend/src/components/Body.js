@@ -53,6 +53,14 @@ const Body = () => {
 		);
 	};
 
+	const handleUpdateRestaurant = (updatedRestaurant) => {
+		const filteredRestaurants = restaurantData.filter(
+			(restaurant) => restaurant._id !== updatedRestaurant._id
+		);
+
+		setRestaurantData([...filteredRestaurants, updatedRestaurant]);
+	};
+
 	return (
 		<div className="flex flex-1 items-center justify-center py-8">
 			<Routes>
@@ -66,6 +74,7 @@ const Body = () => {
 						<Restaurants
 							restaurants={restaurantData}
 							onDelete={handleDeleteRestaurant}
+							onUpdate={handleUpdateRestaurant}
 						/>
 					}
 				/>

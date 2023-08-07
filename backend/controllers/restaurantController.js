@@ -48,9 +48,7 @@ const updateRestaurant = async (req, res) => {
 		const response = await Restaurant.findByIdAndUpdate(id, update, {
 			new: true,
 		});
-		res.status(200).json({
-			message: `Successfully updated restaurant: ${response.name}`,
-		});
+		res.status(200).json(response);
 	} catch (err) {
 		console.log(err);
 	}
