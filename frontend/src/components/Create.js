@@ -78,7 +78,6 @@ const Create = ({ restaurants, onCreate }) => {
 					type="url"
 					name="website"
 					placeholder="Website (optional)"
-					value="https://"
 					pattern="https://.*"
 					className="px-2 py-1 rounded-md"
 					autoComplete="off"></input>
