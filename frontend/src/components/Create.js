@@ -64,6 +64,7 @@ const Create = ({ restaurants, onCreate }) => {
 					name="description"
 					rows="3"
 					cols="50"
+					maxLength={140}
 					placeholder="Description (optional)"
 					autoComplete="off"
 					className="resize-none px-2 py-1 rounded-md"></textarea>
