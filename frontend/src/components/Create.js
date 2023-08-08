@@ -42,13 +42,24 @@ const Create = ({ restaurants, onCreate }) => {
 					placeholder="Name of restaurant"
 					className="px-2 py-1 rounded-md"
 					autoComplete="off"></input>
-				<input
-					type="text"
+				<select
 					name="cuisine"
 					required
 					placeholder="Cuisine"
-					className="px-2 py-1 rounded-md"
-					autoComplete="off"></input>
+					className="px-1 py-1 rounded-md">
+					<option value="">--Select a cuisine--</option>
+					<option>Chinese</option>
+					<option>Indian</option>
+					<option>Fast Food</option>
+					<option>Italian</option>
+					<option>Japanese</option>
+					<option>Korean</option>
+					<option>Local</option>
+					<option>Malay</option>
+					<option>Thai</option>
+					<option>Vietnamese</option>
+					<option>Western</option>
+				</select>
 				<textarea
 					name="description"
 					rows="3"
