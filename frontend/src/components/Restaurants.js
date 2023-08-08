@@ -29,14 +29,14 @@ const Restaurants = ({ restaurants, onDelete, onUpdate }) => {
 	));
 
 	return (
-		<>
-			<div className="flex self-start items-center justify-center bg-gray-200 p-4 rounded-md gap-4">
+		<div className="bg-blue-200 min-w-full min-h-full flex flex-col gap-8 p-8 rounded-md">
+			<div className="flex self-start justify-self-start items-center justify-center bg-gray-200 p-4 rounded-md gap-4">
 				<p>Filter by cuisine:</p>
 				<select
 					name="cuisine"
 					className="px-1 py-1 rounded-md"
 					onChange={filterRestaurants}>
-					<option value="">--Select a cuisine--</option>
+					<option value="">All</option>
 					<option>Chinese</option>
 					<option>Indian</option>
 					<option>Fast Food</option>
@@ -53,7 +53,7 @@ const Restaurants = ({ restaurants, onDelete, onUpdate }) => {
 			<div className="w-full grid grid-cols-2 gap-4 grid-rows-1 auto-rows-fr">
 				{restaurantElements}
 			</div>
-		</>
+		</div>
 	);
 };
 
