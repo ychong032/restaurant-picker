@@ -1,7 +1,24 @@
+import { useEffect, useState } from "react";
 import Restaurant from "./Restaurant";
 
 const Restaurants = ({ restaurants, onDelete, onUpdate }) => {
-	const restaurantElements = restaurants.map((data) => (
+	const [restaurantsToDisplay, setRestaurantsToDisplay] = useState([]);
+
+	useEffect(() => {
+		setRestaurantsToDisplay(restaurants);
+	}, [restaurants]);
+
+	const filterRestaurants = (e) => {
+		if (e.target.value) {
+			setRestaurantsToDisplay(
+				restaurants.filter((el) => el.cuisine === e.target.value)
+			);
+		} else {
+			setRestaurantsToDisplay(restaurants);
+		}
+	};
+
+	const restaurantElements = restaurantsToDisplay.map((data) => (
 		<Restaurant
 			restaurant={data}
 			key={data.name}
@@ -17,9 +34,9 @@ const Restaurants = ({ restaurants, onDelete, onUpdate }) => {
 				<p>Filter by cuisine:</p>
 				<select
 					name="cuisine"
-					required
-					placeholder="Cuisine"
-					className="px-1 py-1 rounded-md">
+					className="px-1 py-1 rounded-md"
+					onChange={filterRestaurants}>
+					<option value="">--Select a cuisine--</option>
 					<option>Chinese</option>
 					<option>Indian</option>
 					<option>Fast Food</option>
