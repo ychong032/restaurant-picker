@@ -17,7 +17,7 @@ const Home = ({ restaurants }) => {
 	};
 
 	return (
-		<div className="bg-gray-200 flex flex-col p-4 rounded-md gap-4">
+		<div className="bg-gray-200 flex flex-col w-1/2 h-fit p-4 rounded-md gap-4">
 			{randomRestaurant ? (
 				<Restaurant restaurant={randomRestaurant} isEditable={false} />
 			) : (
