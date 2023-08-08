@@ -58,7 +58,22 @@ const Body = () => {
 			(restaurant) => restaurant._id !== updatedRestaurant._id
 		);
 
-		setRestaurantData([...filteredRestaurants, updatedRestaurant]);
+		setRestaurantData(
+			[...filteredRestaurants, updatedRestaurant].sort((a, b) => {
+				const restaurantA = a.name.toUpperCase();
+				const restaurantB = b.name.toUpperCase();
+
+				if (restaurantA < restaurantB) {
+					return -1;
+				}
+
+				if (restaurantA > restaurantB) {
+					return 1;
+				}
+
+				return 0;
+			})
+		);
 	};
 
 	return (
