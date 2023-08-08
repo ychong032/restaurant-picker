@@ -1,5 +1,11 @@
 import { useState } from "react";
 import ReactModal from "react-modal";
+import {
+	showServerError,
+	showNetworkError,
+	showDeleteNotification,
+	showUpdateNotification,
+} from "../util/notification";
 
 const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 	const [showModal, setShowModal] = useState(false);
@@ -12,12 +18,16 @@ const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 				`http://localhost:3001/api/restaurants/${restaurant._id}`,
 				{ method: "DELETE" }
 			);
-			onDelete(restaurant._id);
 
-			const json = await response.json();
-			alert(json.message);
+			if (response.status === 200) {
+				onDelete(restaurant._id);
+
+				showDeleteNotification(restaurant.name);
+			} else {
+				showServerError();
+			}
 		} catch (err) {
-			console.log(err);
+			showNetworkError();
 		}
 	};
 
@@ -40,10 +50,16 @@ const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 				}
 			);
 
-			const updatedRestaurant = await response.json();
-			onUpdate(updatedRestaurant);
+			if (response.status === 200) {
+				const updatedRestaurant = await response.json();
+				onUpdate(updatedRestaurant);
+
+				showUpdateNotification(updatedRestaurant.name);
+			} else {
+				showServerError();
+			}
 		} catch (err) {
-			console.log(err);
+			showNetworkError();
 		}
 
 		closeModal();

@@ -1,6 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import {
+	showServerError,
+	showNetworkError,
+	showCreateNotification,
+} from "../util/notification";
 
-const Create = ({ restaurants, onCreate }) => {
+const Create = ({ onCreate }) => {
 	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
@@ -22,12 +27,18 @@ const Create = ({ restaurants, onCreate }) => {
 				}
 			);
 
-			const newRestaurant = await response.json();
-			onCreate(newRestaurant);
+			if (response.status === 200) {
+				const newRestaurant = await response.json();
+				onCreate(newRestaurant);
 
-			navigate("/success");
+				showCreateNotification(newRestaurant.name);
+
+				navigate("/restaurants");
+			} else {
+				showServerError();
+			}
 		} catch (err) {
-			alert("Failed to add restaurant: " + err);
+			showNetworkError();
 		}
 	};
 
