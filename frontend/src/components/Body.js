@@ -22,8 +22,6 @@ const Body = () => {
 			}
 		};
 
-		console.log("I fire once");
-
 		fetchData();
 	}, []);
 
