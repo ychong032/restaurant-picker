@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 	return (
-		<div className="h-screen flex flex-col">
+		<div className="h-screen flex flex-col font-raleway">
 			<Header />
 			<Body />
 			<Footer />
