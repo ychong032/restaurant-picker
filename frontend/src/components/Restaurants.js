@@ -51,7 +51,13 @@ const Restaurants = ({ restaurants, onDelete, onUpdate }) => {
 				</select>
 			</div>
 			<div className="w-full grid grid-cols-2 gap-4 grid-rows-1 auto-rows-fr">
-				{restaurantElements}
+				{restaurantElements.length ? (
+					restaurantElements
+				) : (
+					<div>
+						No restaurants available for the selected cuisine!
+					</div>
+				)}
 			</div>
 		</div>
 	);
