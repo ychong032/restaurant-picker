@@ -75,8 +75,12 @@ const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 
 	const editButtons = (
 		<div className="flex gap-2">
-			<button onClick={openModal}>Edit</button>
-			<button onClick={handleDelete}>Delete</button>
+			<button onClick={openModal} title="Edit restaurant">
+				<i className="fa-regular fa-pen-to-square fa-lg text-black hover:text-sky-500 active:text-sky-600"></i>
+			</button>
+			<button onClick={handleDelete} title="Delete restaurant">
+				<i className="fa-regular fa-trash-can fa-lg text-black hover:text-red-500 active:text-red-600"></i>
+			</button>
 		</div>
 	);
 
@@ -88,31 +92,34 @@ const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 				</h1>
 				{isEditable && editButtons}
 			</div>
-			<div className="grid grid-cols-[1fr_4fr] gap-x-6 gap-y-1 mb-1">
-				<p>Cuisine:</p>
+			<div className="grid grid-cols-[auto,_1fr] items-center gap-x-4 gap-y-1 mb-1">
+				<i className="fa-solid fa-utensils justify-self-center"></i>
 				<p>{restaurant.cuisine}</p>
 				{restaurant.description && (
 					<>
-						<p>Description:</p>
+						<i className="fa-solid fa-circle-info justify-self-center"></i>
 						<p>{restaurant.description}</p>
 					</>
 				)}
 				{restaurant.area && (
 					<>
-						<p>Location:</p>
+						<i className="fa-solid fa-location-dot justify-self-center"></i>
 						<p>{restaurant.area}</p>
 					</>
 				)}
+				{restaurant.website && (
+					<>
+						<i className="fa-solid fa-link"></i>
+						<a
+							href={restaurant.website}
+							target="_blank"
+							rel="noreferrer"
+							className="no-underline text-blue-600 hover:text-blue-400 active:text-blue-700">
+							{restaurant.website}
+						</a>
+					</>
+				)}
 			</div>
-			{restaurant.website && (
-				<a
-					href={restaurant.website}
-					target="_blank"
-					rel="noreferrer"
-					className="no-underline text-blue-600 hover:text-blue-400 active:text-blue-700">
-					Go to website
-				</a>
-			)}
 		</>
 	);
 
