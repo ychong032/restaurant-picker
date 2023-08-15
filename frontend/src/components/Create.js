@@ -43,8 +43,8 @@ const Create = ({ onCreate }) => {
 	};
 
 	return (
-		<div className="bg-gray-200 p-4 text-center flex flex-col gap-y-4 rounded-md">
-			<h1 className="font-semibold text-lg">Add a new restaurant</h1>
+		<div className="bg-gray-100 p-4 text-center flex flex-col gap-y-4 rounded-md border-solid border-2 border-gray-400">
+			<h1 className="font-semibold text-xl">Add a new restaurant</h1>
 			<form onSubmit={handleSubmit} className="flex flex-col gap-y-4 p-2">
 				<input
 					type="text"
