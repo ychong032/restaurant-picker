@@ -10,6 +10,7 @@ export function showServerError() {
 		draggable: true,
 		progress: undefined,
 		theme: "light",
+		bodyClassName: "font-raleway",
 	});
 }
 
@@ -23,6 +24,7 @@ export function showNetworkError() {
 		draggable: true,
 		progress: undefined,
 		theme: "light",
+		bodyClassName: "font-raleway",
 	});
 }
 
@@ -41,6 +43,7 @@ export function showDeleteNotification(name) {
 			progress: undefined,
 			theme: "light",
 			icon: "🗑️",
+			bodyClassName: "font-raleway",
 		}
 	);
 }
@@ -59,6 +62,7 @@ export function showUpdateNotification(name) {
 			draggable: true,
 			progress: undefined,
 			theme: "light",
+			bodyClassName: "font-raleway",
 		}
 	);
 }
@@ -77,6 +81,7 @@ export function showCreateNotification(name) {
 			draggable: true,
 			progress: undefined,
 			theme: "light",
+			bodyClassName: "font-raleway",
 		}
 	);
 }
