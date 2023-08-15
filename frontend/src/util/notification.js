@@ -42,14 +42,16 @@ export function showDeleteNotification(name) {
 			draggable: true,
 			progress: undefined,
 			theme: "light",
-			icon: "🗑️",
+			icon: ({ theme, type }) => (
+				<i className="fa-regular fa-trash-can fa-lg"></i>
+			),
 			bodyClassName: "font-raleway",
 		}
 	);
 }
 
 export function showUpdateNotification(name) {
-	toast.success(
+	toast.info(
 		<p>
 			Updated <b>{name}</b>
 		</p>,
@@ -63,6 +65,9 @@ export function showUpdateNotification(name) {
 			progress: undefined,
 			theme: "light",
 			bodyClassName: "font-raleway",
+			icon: ({ theme, type }) => (
+				<i className="fa-regular fa-pen-to-square fa-lg"></i>
+			),
 		}
 	);
 }
