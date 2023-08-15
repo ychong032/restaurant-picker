@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Home from "./Home";
 import Restaurants from "./Restaurants";
 import Create from "./Create";
-import Success from "./Success";
 
 const Body = () => {
 	const [restaurantData, setRestaurantData] = useState([]);
@@ -100,7 +99,6 @@ const Body = () => {
 						/>
 					}
 				/>
-				<Route path="/success" element={<Success />} />
 			</Routes>
 		</div>
 	);
