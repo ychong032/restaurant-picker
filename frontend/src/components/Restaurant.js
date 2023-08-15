@@ -75,11 +75,17 @@ const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 
 	const editButtons = (
 		<div className="flex gap-2">
-			<button onClick={openModal} title="Edit restaurant">
-				<i className="fa-regular fa-pen-to-square fa-lg text-black hover:text-sky-500 active:text-sky-600"></i>
+			<button
+				onClick={openModal}
+				title="Edit restaurant"
+				className="text-black hover:text-sky-500 active:text-sky-600">
+				<i className="fa-regular fa-pen-to-square fa-lg "></i>
 			</button>
-			<button onClick={handleDelete} title="Delete restaurant">
-				<i className="fa-regular fa-trash-can fa-lg text-black hover:text-red-500 active:text-red-600"></i>
+			<button
+				onClick={handleDelete}
+				title="Delete restaurant"
+				className="text-black hover:text-red-500 active:text-red-600">
+				<i className="fa-regular fa-trash-can fa-lg"></i>
 			</button>
 		</div>
 	);

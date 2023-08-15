@@ -29,8 +29,8 @@ const Restaurants = ({ restaurants, onDelete, onUpdate }) => {
 	));
 
 	return (
-		<div className="bg-blue-200 min-w-full min-h-full flex flex-col gap-8 p-8 rounded-md">
-			<div className="flex self-start justify-self-start items-center justify-center bg-gray-200 p-4 rounded-md gap-4">
+		<div className="bg-gray-100 min-w-full min-h-full flex flex-col gap-8 p-8 rounded-md">
+			<div className="flex self-start items-center justify-center bg-gray-100 p-4 rounded-md gap-4 border-2 border-gray-500">
 				<p>Filter by cuisine:</p>
 				<select
 					name="cuisine"
