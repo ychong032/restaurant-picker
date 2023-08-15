@@ -87,7 +87,7 @@ const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 	const viewContainer = (
 		<>
 			<div className="flex justify-between">
-				<h1 className="text-lg font-semibold mb-2">
+				<h1 className="text-xl font-semibold mb-2">
 					{restaurant.name}
 				</h1>
 				{isEditable && editButtons}
@@ -215,7 +215,9 @@ const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 
 	return (
 		<>
-			<div className="p-4 bg-gray-200 rounded-md">{viewContainer}</div>
+			<div className="p-4 bg-gray-100 rounded-md border-solid border-2 border-gray-500">
+				{viewContainer}
+			</div>
 			{editModal}
 		</>
 	);

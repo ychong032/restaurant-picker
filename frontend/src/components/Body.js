@@ -75,7 +75,7 @@ const Body = () => {
 	};
 
 	return (
-		<div className="flex flex-1 flex-col items-center justify-center py-8 px-60 gap-8">
+		<div className="flex flex-1 flex-col items-center justify-center py-8 px-60 gap-8 bg-gray-100">
 			<Routes>
 				<Route
 					path="/"
