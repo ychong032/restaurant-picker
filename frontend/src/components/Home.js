@@ -24,7 +24,7 @@ const Home = ({ restaurants }) => {
 				<p>No restaurants in database.</p>
 			)}
 			<button
-				className="p-4 rounded-xl bg-sky-200 hover:bg-sky-300 active:bg-sky-400"
+				className="p-4 rounded-xl bg-blue-500 hover:bg-blue-400 active:bg-blue-600 text-gray-200"
 				onClick={handleClick}>
 				Get another restaurant
 			</button>
