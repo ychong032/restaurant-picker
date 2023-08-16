@@ -15,7 +15,7 @@ const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 	const handleDelete = async () => {
 		try {
 			const response = await fetch(
-				`http://localhost:3001/api/restaurants/${restaurant._id}`,
+				`${process.env.REACT_APP_ENDPOINT}/${restaurant._id}`,
 				{ method: "DELETE" }
 			);
 
@@ -39,7 +39,7 @@ const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 
 		try {
 			const response = await fetch(
-				`http://localhost:3001/api/restaurants/${restaurant._id}`,
+				`${process.env.REACT_APP_ENDPOINT}/${restaurant._id}`,
 				{
 					method: "PATCH",
 					headers: {

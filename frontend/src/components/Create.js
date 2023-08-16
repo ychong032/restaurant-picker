@@ -15,17 +15,14 @@ const Create = ({ onCreate }) => {
 		const jsonData = JSON.stringify(Object.fromEntries(formData));
 
 		try {
-			const response = await fetch(
-				"http://localhost:3001/api/restaurants",
-				{
-					method: "POST",
-					headers: {
-						Accept: "application/json",
-						"Content-Type": "application/json",
-					},
-					body: jsonData,
-				}
-			);
+			const response = await fetch(process.env.REACT_APP_ENDPOINT, {
+				method: "POST",
+				headers: {
+					Accept: "application/json",
+					"Content-Type": "application/json",
+				},
+				body: jsonData,
+			});
 
 			if (response.status === 200) {
 				const newRestaurant = await response.json();

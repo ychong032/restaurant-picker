@@ -10,9 +10,7 @@ const Body = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch(
-					"http://localhost:3001/api/restaurants"
-				);
+				const response = await fetch(process.env.REACT_APP_ENDPOINT);
 				const restaurants = await response.json();
 
 				setRestaurantData(restaurants);
