@@ -7,12 +7,21 @@ const restaurantRouter = require("./routes/restaurantRoutes");
 
 const app = express();
 
+const port =
+	process.env.NODE_ENV === "production"
+		? process.env.PORT || 3000
+		: process.env.DEV_PORT;
+const hostname =
+	process.env.NODE_ENV === "production"
+		? process.env.HOST || "0.0.0.0"
+		: "localhost";
+
 // Connect to database
 mongoose
-	.connect(process.env["DB_URI"])
+	.connect(process.env.MONGODB_URI)
 	.then((result) => {
-		app.listen(process.env["PORT_NUMBER"], () =>
-			console.log(`Listening on port ${process.env.PORT_NUMBER}...`)
+		app.listen(port, hostname, () =>
+			console.log(`Listening on port ${hostname}:${port}...`)
 		);
 	})
 	.catch((err) => console.log(err));
@@ -24,3 +33,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
 app.use("/api/restaurants", restaurantRouter);
+
+app.get("/", (req, res) => {
+	res.send("This is the server for Restaurant Picker");
+	res.end();
+});
