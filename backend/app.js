@@ -7,10 +7,7 @@ const restaurantRouter = require("./routes/restaurantRoutes");
 
 const app = express();
 
-const port =
-	process.env.NODE_ENV === "production"
-		? process.env.PORT || 3000
-		: process.env.DEV_PORT;
+const port = process.env.PORT;
 const hostname =
 	process.env.NODE_ENV === "production"
 		? process.env.HOST || "0.0.0.0"
