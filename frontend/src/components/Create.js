@@ -61,6 +61,7 @@ const Create = ({ onCreate }) => {
 					<option>Dessert</option>
 					<option>Fast Food</option>
 					<option>French</option>
+					<option>Fusion</option>
 					<option>Greek</option>
 					<option>Indian</option>
 					<option>Italian</option>
