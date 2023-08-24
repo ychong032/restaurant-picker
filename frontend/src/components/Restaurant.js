@@ -175,10 +175,11 @@ const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 					className="px-1 py-1 rounded-md">
 					<option value="">--Select a cuisine--</option>
 					<option>Chinese</option>
-					<option>Indian</option>
+					<option>Dessert</option>
 					<option>Fast Food</option>
 					<option>French</option>
 					<option>Greek</option>
+					<option>Indian</option>
 					<option>Italian</option>
 					<option>Japanese</option>
 					<option>Korean</option>
