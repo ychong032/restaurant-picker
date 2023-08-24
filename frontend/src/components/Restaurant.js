@@ -177,11 +177,14 @@ const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 					<option>Chinese</option>
 					<option>Indian</option>
 					<option>Fast Food</option>
+					<option>French</option>
+					<option>Greek</option>
 					<option>Italian</option>
 					<option>Japanese</option>
 					<option>Korean</option>
 					<option>Local</option>
 					<option>Malay</option>
+					<option>Mexican</option>
 					<option>Thai</option>
 					<option>Vietnamese</option>
 					<option>Western</option>
