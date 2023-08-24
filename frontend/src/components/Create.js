@@ -67,6 +67,7 @@ const Create = ({ onCreate }) => {
 					<option>Korean</option>
 					<option>Local</option>
 					<option>Malay</option>
+					<option>Mediterranean</option>
 					<option>Mexican</option>
 					<option>Thai</option>
 					<option>Vietnamese</option>
