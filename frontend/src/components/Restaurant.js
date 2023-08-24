@@ -174,6 +174,7 @@ const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 					placeholder="Cuisine"
 					className="px-1 py-1 rounded-md">
 					<option value="">--Select a cuisine--</option>
+					<option>Brazillian</option>
 					<option>Chinese</option>
 					<option>Dessert</option>
 					<option>Fast Food</option>
@@ -187,7 +188,10 @@ const Restaurant = ({ restaurant, isEditable, onDelete, onUpdate }) => {
 					<option>Malay</option>
 					<option>Mediterranean</option>
 					<option>Mexican</option>
+					<option>Russian</option>
+					<option>Spanish</option>
 					<option>Thai</option>
+					<option>Turkish</option>
 					<option>Vietnamese</option>
 					<option>Western</option>
 				</select>

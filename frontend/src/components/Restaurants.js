@@ -37,6 +37,7 @@ const Restaurants = ({ restaurants, onDelete, onUpdate }) => {
 					className="px-1 py-1 rounded-md"
 					onChange={filterRestaurants}>
 					<option value="">All</option>
+					<option>Brazillian</option>
 					<option>Chinese</option>
 					<option>Dessert</option>
 					<option>Fast Food</option>
@@ -50,7 +51,10 @@ const Restaurants = ({ restaurants, onDelete, onUpdate }) => {
 					<option>Malay</option>
 					<option>Mediterranean</option>
 					<option>Mexican</option>
+					<option>Russian</option>
+					<option>Spanish</option>
 					<option>Thai</option>
+					<option>Turkish</option>
 					<option>Vietnamese</option>
 					<option>Western</option>
 				</select>
